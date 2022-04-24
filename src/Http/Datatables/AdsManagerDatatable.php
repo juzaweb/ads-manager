@@ -61,8 +61,8 @@ class AdsManagerDatatable extends DataTable
         if ($search = Arr::get($data, 'keyword')) {
             $query->where(
                 function (Builder $q) use ($search) {
-                    $q->where('position', 'like', '%'. $search .'%');
-                    $q->orWhere('name', 'like', '%'. $search .'%');
+                    $q->where('position', 'like', "%{$search}%");
+                    $q->orWhere('name', 'like', "%{$search}%");
                 }
             );
         }
