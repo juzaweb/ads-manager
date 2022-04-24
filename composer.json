@@ -13,8 +13,8 @@
             ],
             "name": "Ads Management",
             "domain": "juad",
-            "cms_min": "1.0.9",
-            "version": "1.0"
+            "cms_min": "3.0",
+            "version": "1.0.1"
         }
     },
     "autoload": {

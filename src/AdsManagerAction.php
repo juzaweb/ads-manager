@@ -11,7 +11,7 @@ class AdsManagerAction extends Action
     public function handle()
     {
         $this->addFilter('posts.get_content', [$this, 'addAdsPost']);
-        $this->addAction(Action::BACKEND_CALL_ACTION, [$this, 'addAdminMenus']);
+        $this->addAction(Action::BACKEND_INIT, [$this, 'addAdminMenus']);
     }
 
     public function addAdminMenus()
@@ -28,7 +28,7 @@ class AdsManagerAction extends Action
         );
     }
 
-    public function addAdsPost($content)
+    public function addAdsPost($content): string
     {
         $botAds = Ads::where('position', '=', 'post_footer')
             ->whereActive(1)

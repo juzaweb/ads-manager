@@ -43,7 +43,7 @@ class Ads extends Model
         'position'
     ];
 
-    public static function getPositions()
+    public static function getPositions(): array
     {
         return [
             'post_header' => trans('cms::app.post_header'),
@@ -53,17 +53,16 @@ class Ads extends Model
         ];
     }
 
-    public function getBody()
+    public function getBody(): ?string
     {
-        switch ($this->type) {
-            case Ads::TYPE_BANNER:
-                return '<img src="'. upload_url($this->body) .'" />';
+        if ($this->type == Ads::TYPE_BANNER) {
+            return '<img src="'.upload_url($this->body).'" />';
         }
 
         return $this->body;
     }
 
-    public function getFieldName()
+    public function getFieldName(): string
     {
         return 'name';
     }

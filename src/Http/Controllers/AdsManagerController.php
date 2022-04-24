@@ -2,7 +2,6 @@
 
 namespace Juzaweb\AdsManager\Http\Controllers;
 
-use Illuminate\Support\Facades\Validator;
 use Juzaweb\AdsManager\Http\Datatables\AdsManagerDatatable;
 use Juzaweb\Backend\Http\Controllers\Backend\PageController;
 use Juzaweb\AdsManager\Models\Ads;
@@ -14,14 +13,14 @@ class AdsManagerController extends PageController
         getDataForForm as DataForForm;
     }
 
-    protected $viewPrefix = 'juad::backend.ads';
+    protected string $viewPrefix = 'juad::backend.ads';
 
-    protected function getDataTable(...$params)
+    protected function getDataTable(...$params): AdsManagerDatatable
     {
         return (new AdsManagerDatatable());
     }
 
-    protected function validator(array $attributes, ...$params)
+    protected function validator(array $attributes, ...$params): array
     {
         $positions = array_keys(Ads::getPositions());
 
@@ -32,7 +31,7 @@ class AdsManagerController extends PageController
         ];
     }
 
-    protected function getModel(...$params)
+    protected function getModel(...$params): string
     {
         return Ads::class;
     }
@@ -42,7 +41,7 @@ class AdsManagerController extends PageController
         return $this->findPageOrFail()['title'];
     }
 
-    protected function getDataForForm($model, ...$params)
+    protected function getDataForForm($model, ...$params): array
     {
         $data = $this->DataForForm($model);
         $data['positions'] = Ads::getPositions();
