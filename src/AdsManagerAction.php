@@ -2,9 +2,9 @@
 
 namespace Juzaweb\AdsManager;
 
-use Juzaweb\CMS\Abstracts\Action;
 use Juzaweb\AdsManager\Models\Ads;
-use Juzaweb\Backend\Facades\HookAction;
+use Juzaweb\CMS\Abstracts\Action;
+use Juzaweb\CMS\Facades\HookAction;
 
 class AdsManagerAction extends Action
 {
