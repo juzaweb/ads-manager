@@ -16,6 +16,15 @@ class AdsManagerAction extends Action
 
     public function addAdminMenus()
     {
+        HookAction::addAdminMenu(
+            trans('juad::content.ads_manager'),
+            'ads-manager',
+            [
+                'icon' => 'fa fa-file',
+                'position' => 51,
+            ]
+        );
+
         HookAction::registerAdminPage(
             'banner-ads',
             [
@@ -23,6 +32,7 @@ class AdsManagerAction extends Action
                 'menu' => [
                     'icon' => 'fa fa-file',
                     'position' => 30,
+                    'parent' => 'ads-manager'
                 ]
             ]
         );
