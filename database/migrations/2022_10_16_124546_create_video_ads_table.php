@@ -15,22 +15,14 @@ return new class extends Migration {
         Schema::create(
             'juad_video_ads',
             function (Blueprint $table) {
-                $table->bigIncrements('id');
+                $table->uuid('id')->unique();
                 $table->string('name', 50);
+                $table->string('title')->nullable();
+                $table->string('video');
+                $table->string('url')->nullable();
+                $table->string('position', 50);
+                $table->boolean('active')->default(1);
                 $table->timestamps();
-            }
-        );
-
-        Schema::create(
-            'juad_video_ad_videos',
-            function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->unsignedBigInteger('video_ad_id');
-                $table->string('url');
-                $table->foreign('video_ad_id')
-                    ->references('id')
-                    ->on('juad_video_ads')
-                    ->onDelete('cascade');
             }
         );
     }
@@ -42,7 +34,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('juad_video_ad_videos');
         Schema::dropIfExists('juad_video_ads');
     }
 };

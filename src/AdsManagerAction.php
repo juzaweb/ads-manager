@@ -2,6 +2,7 @@
 
 namespace Juzaweb\AdsManager;
 
+use Juzaweb\AdsManager\Http\Controllers\Frontend\VideoAdsController;
 use Juzaweb\AdsManager\Models\Ads;
 use Juzaweb\CMS\Abstracts\Action;
 use Juzaweb\CMS\Facades\HookAction;
@@ -12,6 +13,7 @@ class AdsManagerAction extends Action
     {
         $this->addFilter('posts.get_content', [$this, 'addAdsPost']);
         $this->addAction(Action::BACKEND_INIT, [$this, 'addAdminMenus']);
+        $this->addAction(Action::FRONTEND_INIT, [$this, 'registerFrontendAjax']);
     }
 
     public function addAdminMenus()
@@ -31,7 +33,19 @@ class AdsManagerAction extends Action
                 'title' => trans('juad::content.banner_ads'),
                 'menu' => [
                     'icon' => 'fa fa-file',
-                    'position' => 30,
+                    'position' => 1,
+                    'parent' => 'ads-manager'
+                ]
+            ]
+        );
+
+        HookAction::registerAdminPage(
+            'video-ads',
+            [
+                'title' => trans('juad::content.video_ads'),
+                'menu' => [
+                    'icon' => 'fa fa-video',
+                    'position' => 2,
                     'parent' => 'ads-manager'
                 ]
             ]
@@ -57,5 +71,15 @@ class AdsManagerAction extends Action
         }
 
         return $str . $content;
+    }
+
+    public function registerFrontendAjax()
+    {
+        HookAction::registerFrontendAjax(
+            'video-ads',
+            [
+                'callback' => [VideoAdsController::class, 'getAds']
+            ]
+        );
     }
 }

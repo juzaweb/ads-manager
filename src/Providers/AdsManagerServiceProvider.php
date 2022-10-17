@@ -14,9 +14,10 @@ class AdsManagerServiceProvider extends ServiceProvider
     {
         HookAction::macro(
             'registerAdsPosition',
-            function (string $key, array $args = []) {
+            function (string $key, string $type = 'banner', array $args = []) {
                 $defaults = [
                     'name' => '',
+                    'type' => $type,
                     'key' => $key,
                 ];
 
@@ -33,7 +34,7 @@ class AdsManagerServiceProvider extends ServiceProvider
             'getAdsPositions',
             function (string $key = null) {
                 if ($key) {
-                    return $this->globalData->get('ads.' . $key);
+                    return $this->globalData->get("ads.{$key}");
                 }
 
                 return new Collection($this->globalData->get('ads'));
