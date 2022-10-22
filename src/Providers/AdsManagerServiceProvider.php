@@ -4,12 +4,18 @@ namespace Juzaweb\AdsManager\Providers;
 
 use Illuminate\Support\Collection;
 use Juzaweb\AdsManager\AdsManagerAction;
+use Juzaweb\AdsManager\Repositories\AdsRepository;
+use Juzaweb\AdsManager\Repositories\AdsRepositoryEloquent;
 use Juzaweb\CMS\Facades\ActionRegister;
 use Juzaweb\CMS\Support\HookAction;
 use Juzaweb\CMS\Support\ServiceProvider;
 
 class AdsManagerServiceProvider extends ServiceProvider
 {
+    public array $bindings = [
+        AdsRepository::class => AdsRepositoryEloquent::class
+    ];
+
     public function boot()
     {
         HookAction::macro(
