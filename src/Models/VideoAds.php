@@ -2,13 +2,13 @@
 
 namespace Juzaweb\AdsManager\Models;
 
-use Juzaweb\CMS\Facades\HookAction;
 use Juzaweb\CMS\Models\Model;
 use Juzaweb\CMS\Traits\ResourceModel;
+use Juzaweb\CMS\Traits\UUIDPrimaryKey;
 
 class VideoAds extends Model
 {
-    use ResourceModel;
+    use ResourceModel, UUIDPrimaryKey;
 
     protected $table = 'juad_video_ads';
 

@@ -5,7 +5,7 @@ namespace Juzaweb\AdsManager\Http\Datatables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Juzaweb\CMS\Abstracts\DataTable;
-use Juzaweb\AdsManager\Models\JuadVideoAd;
+use Juzaweb\AdsManager\Models\VideoAds;
 
 class VideoAdDatatable extends DataTable
 {
@@ -14,7 +14,7 @@ class VideoAdDatatable extends DataTable
      *
      * @return array
      */
-    public function columns()
+    public function columns(): array
     {
         return [
             'name' => [
@@ -38,14 +38,17 @@ class VideoAdDatatable extends DataTable
      * @param array $data
      * @return Builder
      */
-    public function query($data)
+    public function query($data): Builder
     {
-        $query = JuadVideoAd::query();
+        $query = VideoAds::query();
 
         if ($keyword = Arr::get($data, 'keyword')) {
-            $query->where(function (Builder $q) use ($keyword) {
-                // $q->where('title', JW_SQL_LIKE, '%'. $keyword .'%');
-            });
+            $query->where(
+                function (Builder $q) use ($keyword) {
+                    $q->where('name', JW_SQL_LIKE, '%'. $keyword .'%');
+                    $q->where('title', JW_SQL_LIKE, '%'. $keyword .'%');
+                }
+            );
         }
 
         return $query;
@@ -55,8 +58,8 @@ class VideoAdDatatable extends DataTable
     {
         switch ($action) {
             case 'delete':
-            JuadVideoAd::destroy($ids);
-            break;
+                VideoAds::destroy($ids);
+                break;
         }
     }
 }

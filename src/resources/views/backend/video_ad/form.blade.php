@@ -13,6 +13,20 @@
 
                 {{ Field::uploadUrl($model, 'video', ['label' => __('Video'), 'required' => true]) }}
 
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ Field::text($model, 'offset', ['label' => __('Offset'), 'default' => 1]) }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ Field::text($model, 'options[skipoffset]', [
+                                'label' => __('Skipoffset'),
+                                'default' => 5
+                             ])
+                        }}
+                    </div>
+                </div>
+
                 {{ Field::text($model, 'url') }}
             </div>
 
