@@ -14,7 +14,7 @@ class AdsManagerAction extends Action
     {
         $this->addFilter('posts.get_content', [$this, 'addAdsPost']);
         $this->addAction(Action::BACKEND_INIT, [$this, 'addAdminMenus']);
-        $this->addAction(Action::BACKEND_INIT, [$this, 'addAdminManagements']);
+        //$this->addAction(Action::BACKEND_INIT, [$this, 'addAdminManagements']);
         $this->addAction(Action::FRONTEND_INIT, [$this, 'registerFrontendAjax']);
     }
 
@@ -70,7 +70,7 @@ class AdsManagerAction extends Action
             ]
         );
 
-        /*HookAction::registerAdminPage(
+        HookAction::registerAdminPage(
             'banner-ads',
             [
                 'title' => trans('juad::content.banner_ads'),
@@ -81,7 +81,7 @@ class AdsManagerAction extends Action
                 ]
             ]
         );
-        */
+
         HookAction::registerAdminPage(
             'video-ads',
             [

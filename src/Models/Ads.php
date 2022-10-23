@@ -44,7 +44,7 @@ class Ads extends Model
         'position'
     ];
 
-    public static function getPositions(string $type = null): array
+    public static function getPositions(): array
     {
         $defaults = [
             'post_header' => trans('cms::app.post_header'),
@@ -53,7 +53,7 @@ class Ads extends Model
             'bottom_right' => trans('cms::app.bottom_right'),
         ];
 
-        $customs = HookAction::getAdsPositions()->where('type', $type)->pluck('name', 'key')->toArray();
+        $customs = HookAction::getAdsPositions()->where('type', 'banner')->pluck('name', 'key')->toArray();
 
         return array_merge($defaults, $customs);
     }
