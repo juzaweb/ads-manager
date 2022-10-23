@@ -1,6 +1,6 @@
 <?php
 
-namespace Juzaweb\AdsManager\Http\Controllers;
+namespace Juzaweb\AdsManager\Http\Controllers\Backend;
 
 use Juzaweb\AdsManager\Http\Datatables\AdsManagerDatatable;
 use Juzaweb\Backend\Http\Controllers\Backend\PageController;
@@ -22,7 +22,7 @@ class AdsManagerController extends PageController
 
     protected function validator(array $attributes, ...$params): array
     {
-        $positions = array_keys(Ads::getPositions());
+        $positions = array_keys(Ads::getPositions('banner'));
 
         return [
             'name' => 'required|max:50',

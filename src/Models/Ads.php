@@ -3,6 +3,7 @@
 namespace Juzaweb\AdsManager\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Juzaweb\CMS\Facades\HookAction;
 use Juzaweb\CMS\Models\Model;
 
 /**
@@ -45,12 +46,16 @@ class Ads extends Model
 
     public static function getPositions(): array
     {
-        return [
+        $defaults = [
             'post_header' => trans('cms::app.post_header'),
             'post_footer' => trans('cms::app.post_footer'),
             'bottom_left' => trans('cms::app.bottom_left'),
             'bottom_right' => trans('cms::app.bottom_right'),
         ];
+
+        $customs = HookAction::getAdsPositions()->where('type', 'banner')->pluck('name', 'key')->toArray();
+
+        return array_merge($defaults, $customs);
     }
 
     public function getBody(): ?string
