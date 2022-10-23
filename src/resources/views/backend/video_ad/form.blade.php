@@ -7,9 +7,11 @@
 
         <div class="row">
             <div class="col-md-8">
-                {{ Field::text($model, 'name') }}
+                {{ Field::text($model, 'name', ['required' => true]) }}
 
-                {{ Field::uploadUrl($model, 'video', ['label' => __('Video')]) }}
+                {{ Field::text($model, 'title') }}
+
+                {{ Field::uploadUrl($model, 'video', ['label' => __('Video'), 'required' => true]) }}
 
                 {{ Field::text($model, 'url') }}
             </div>
@@ -19,11 +21,13 @@
                     'options' => [
                         '1' => trans('cms::app.enabled'),
                         '0' => trans('cms::app.disabled'),
-                    ]
+                    ],
+                    'required' => true
                 ]) }}
 
                 {{ Field::select($model, 'position', [
-                    'options' => $positions
+                    'options' => $positions,
+                    'required' => true
                 ]) }}
             </div>
         </div>

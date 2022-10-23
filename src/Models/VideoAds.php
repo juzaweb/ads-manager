@@ -11,12 +11,17 @@ class VideoAds extends Model
     use ResourceModel;
 
     protected $table = 'juad_video_ads';
+
     protected $fillable = [
         'name',
         'title',
         'video',
         'url',
         'position',
-        'active'
+        'offset',
+        'options',
+        'active',
     ];
+
+    public $casts = ['options' => 'array'];
 }

@@ -21,6 +21,8 @@ return new class extends Migration {
                 $table->string('video');
                 $table->string('url')->nullable();
                 $table->string('position', 50);
+                $table->integer('offset')->default(1);
+                $table->json('options')->nullable();
                 $table->boolean('active')->default(1);
                 $table->timestamps();
             }

@@ -26,6 +26,6 @@ class VideoAdsRepositoryEloquent extends BaseRepositoryEloquent implements Video
 
     public function getPositions(): array
     {
-        return HookAction::getAdsPositions()->where('type', 'banner')->pluck('name', 'key')->toArray();
+        return HookAction::getAdsPositions()->where('type', 'video')->pluck('name', 'key')->toArray();
     }
 }
