@@ -17,7 +17,7 @@ use Juzaweb\CMS\Abstracts\BackendResource;
 class BannerAds extends BackendResource
 {
     protected string $key = 'banner-ads';
-    protected string $label = 'juad::content.banner_ads';
+    protected string $label = 'jwad::content.banner_ads';
     protected string $repository = AdsRepository::class;
     protected array $validator = [];
 

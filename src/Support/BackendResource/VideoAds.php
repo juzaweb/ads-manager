@@ -16,7 +16,7 @@ use Juzaweb\CMS\Abstracts\BackendResource;
 class VideoAds extends BackendResource
 {
     protected string $key = 'video-ads';
-    protected string $label = 'juad::content.video_ads';
+    protected string $label = 'jwad::content.video_ads';
     protected string $repository = VideoAdsRepository::class;
     protected array $validator = [];
 
@@ -46,7 +46,7 @@ class VideoAds extends BackendResource
                 'type' => 'text',
             ],
             'video' => [
-                'label' => trans('juad::content.video'),
+                'label' => trans('jwad::content.video'),
                 'type' => 'upload_url',
             ],
             'row' => [
