@@ -22,7 +22,7 @@ class AdsManagerAction extends Action
     public function addAdminMenus()
     {
         HookAction::addAdminMenu(
-            trans('juad::content.ads_manager'),
+            trans('jwad::content.ads_manager'),
             'ads-manager',
             [
                 'icon' => 'fa fa-code',

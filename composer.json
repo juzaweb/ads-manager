@@ -2,12 +2,14 @@
     "name": "juzaweb/ads-manager",
     "description": "Add html ads to your website",
     "extra": {
-        "juzaweb": {
+        "laravel": {
             "providers": [
                 "Juzaweb\\AdsManager\\Providers\\AdsManagerServiceProvider"
-            ],
+            ]
+        },
+        "juzaweb": {
             "name": "Ads Management",
-            "domain": "juad",
+            "domain": "jwad",
             "cms_min": "3.0",
             "version": "1.0.3"
         }

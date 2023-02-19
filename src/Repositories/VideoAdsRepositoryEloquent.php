@@ -6,6 +6,7 @@ use Juzaweb\AdsManager\Models\Ads;
 use Juzaweb\AdsManager\Models\VideoAds;
 use Juzaweb\CMS\Facades\HookAction;
 use Juzaweb\CMS\Repositories\BaseRepositoryEloquent;
+use Juzaweb\CMS\Traits\ResourceRepositoryEloquent;
 
 /**
  * Class CommentRepositoryEloquent.
@@ -14,6 +15,8 @@ use Juzaweb\CMS\Repositories\BaseRepositoryEloquent;
  */
 class VideoAdsRepositoryEloquent extends BaseRepositoryEloquent implements VideoAdsRepository
 {
+    use ResourceRepositoryEloquent;
+    
     /**
      * Specify Model class name
      *

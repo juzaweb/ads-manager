@@ -4,6 +4,7 @@ namespace Juzaweb\AdsManager\Repositories;
 
 use Juzaweb\AdsManager\Models\Ads;
 use Juzaweb\CMS\Repositories\BaseRepositoryEloquent;
+use Juzaweb\CMS\Traits\ResourceRepositoryEloquent;
 
 /**
  * Class CommentRepositoryEloquent.
@@ -12,6 +13,8 @@ use Juzaweb\CMS\Repositories\BaseRepositoryEloquent;
  */
 class AdsRepositoryEloquent extends BaseRepositoryEloquent implements AdsRepository
 {
+    use ResourceRepositoryEloquent;
+
     /**
      * Specify Model class name
      *
