@@ -20,5 +20,9 @@
     },
     "require": {
         "sokil/php-vast": "^2.1"
+    },
+    "require-dev": {
+        "juzaweb/modules": "^1.0",
+        "juzaweb/dev-tool": "^1.0"
     }
 }
