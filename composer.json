@@ -1,17 +1,16 @@
 {
     "name": "juzaweb/ads-manager",
+    "type": "juzaweb-plugin",
+    "license": "MIT",
     "description": "Add html ads to your website",
     "extra": {
-        "laravel": {
-            "providers": [
-                "Juzaweb\\AdsManager\\Providers\\AdsManagerServiceProvider"
-            ]
-        },
         "juzaweb": {
             "name": "Ads Management",
             "domain": "jwad",
             "cms_min": "3.0",
-            "version": "1.0.3"
+            "providers": [
+                "Juzaweb\\AdsManager\\Providers\\AdsManagerServiceProvider"
+            ]
         }
     },
     "autoload": {
