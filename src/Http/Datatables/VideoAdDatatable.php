@@ -35,10 +35,10 @@ class VideoAdDatatable extends DataTable
     /**
      * Query data datatable
      *
-     * @param array $data
+     * @param  array  $data
      * @return Builder
      */
-    public function query($data): Builder
+    public function query(array $data): Builder
     {
         $query = VideoAds::query();
 
@@ -54,12 +54,10 @@ class VideoAdDatatable extends DataTable
         return $query;
     }
 
-    public function bulkActions($action, $ids)
+    public function bulkActions($action, $ids): void
     {
-        switch ($action) {
-            case 'delete':
-                VideoAds::destroy($ids);
-                break;
+        if ($action == 'delete') {
+            VideoAds::destroy($ids);
         }
     }
 }

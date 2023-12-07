@@ -11,7 +11,7 @@ use Juzaweb\CMS\Facades\HookAction;
 
 class AdsManagerAction extends Action
 {
-    public function handle()
+    public function handle(): void
     {
         $this->addFilter('posts.get_content', [$this, 'addAdsPost']);
         $this->addAction(Action::BACKEND_INIT, [$this, 'addAdminMenus']);
@@ -19,7 +19,7 @@ class AdsManagerAction extends Action
         $this->addAction(Action::FRONTEND_INIT, [$this, 'registerFrontendAjax']);
     }
 
-    public function addAdminMenus()
+    public function addAdminMenus(): void
     {
         HookAction::addAdminMenu(
             trans('jwad::content.ads_manager'),
@@ -52,7 +52,7 @@ class AdsManagerAction extends Action
         return $str . $content;
     }
 
-    public function registerFrontendAjax()
+    public function registerFrontendAjax(): void
     {
         HookAction::registerFrontendAjax(
             'video-ads',
@@ -62,7 +62,7 @@ class AdsManagerAction extends Action
         );
     }
 
-    public function registerResources()
+    public function registerResources(): void
     {
         $this->hookAction->registerResource(BannerAds::class);
         $this->hookAction->registerResource(VideoAds::class);

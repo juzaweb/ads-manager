@@ -36,7 +36,7 @@ class AdsManagerController extends PageController
         return Ads::class;
     }
 
-    protected function getTitle(...$params)
+    protected function getTitle(...$params): string
     {
         return $this->findPageOrFail()['title'];
     }

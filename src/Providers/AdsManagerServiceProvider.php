@@ -19,7 +19,7 @@ class AdsManagerServiceProvider extends ServiceProvider
         VideoAdsRepository::class => VideoAdsRepositoryEloquent::class
     ];
 
-    public function boot()
+    public function boot(): void
     {
         HookAction::macro(
             'registerAdsPosition',

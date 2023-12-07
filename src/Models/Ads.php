@@ -5,6 +5,7 @@ namespace Juzaweb\AdsManager\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Juzaweb\CMS\Facades\HookAction;
 use Juzaweb\CMS\Models\Model;
+use Juzaweb\Network\Traits\Networkable;
 
 /**
  * Juzaweb\AdsManager\Models\Ads
@@ -33,15 +34,17 @@ use Juzaweb\CMS\Models\Model;
  */
 class Ads extends Model
 {
-    const TYPE_BANNER = 'banner';
-    const TYPE_HTML = 'html';
+    use Networkable;
+
+    public const TYPE_BANNER = 'banner';
+    public const TYPE_HTML = 'html';
 
     protected $table = 'juad_ads';
     protected $fillable = [
         'name',
         'body',
         'active',
-        'position'
+        'position',
     ];
 
     public static function getPositions(): array
