@@ -8,6 +8,7 @@
             "name": "Ads Management",
             "domain": "jwad",
             "cms_min": "3.0",
+            "networkable": true,
             "providers": [
                 "Juzaweb\\AdsManager\\Providers\\AdsManagerServiceProvider"
             ]

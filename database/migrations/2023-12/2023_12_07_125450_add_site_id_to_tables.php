@@ -18,7 +18,7 @@ return new class extends Migration {
                 $table->index('type');
                 $table->index('position');
                 $table->index('active');
-                $table->unsignedBigInteger('site_id')->nullable()->index();
+                $table->unsignedBigInteger('site_id')->default(0)->index();
             }
         );
 
@@ -27,7 +27,7 @@ return new class extends Migration {
             function (Blueprint $table) {
                 $table->index('position');
                 $table->index('active');
-                $table->unsignedBigInteger('site_id')->nullable()->index();
+                $table->unsignedBigInteger('site_id')->default(0)->index();
             }
         );
     }
