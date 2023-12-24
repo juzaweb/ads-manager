@@ -22,7 +22,7 @@ class AdsManagerController extends PageController
 
     protected function validator(array $attributes, ...$params): array
     {
-        $positions = array_keys(Ads::getPositions('banner'));
+        $positions = array_keys(Ads::getPositions());
 
         return [
             'name' => 'required|max:50',

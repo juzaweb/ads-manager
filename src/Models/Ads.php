@@ -2,7 +2,9 @@
 
 namespace Juzaweb\AdsManager\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Juzaweb\CMS\Facades\HookAction;
 use Juzaweb\CMS\Models\Model;
 use Juzaweb\Network\Traits\Networkable;
@@ -16,8 +18,8 @@ use Juzaweb\Network\Traits\Networkable;
  * @property string $position
  * @property string|null $body
  * @property bool $active
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @method static Builder|Ads newModelQuery()
  * @method static Builder|Ads newQuery()
  * @method static Builder|Ads query()
@@ -30,7 +32,7 @@ use Juzaweb\Network\Traits\Networkable;
  * @method static Builder|Ads whereSiteId($value)
  * @method static Builder|Ads whereType($value)
  * @method static Builder|Ads whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Ads extends Model
 {
@@ -49,21 +51,15 @@ class Ads extends Model
 
     public static function getPositions(): array
     {
-        $defaults = [
-            'post_header' => trans('cms::app.post_header'),
-            'post_footer' => trans('cms::app.post_footer'),
-            'bottom_left' => trans('cms::app.bottom_left'),
-            'bottom_right' => trans('cms::app.bottom_right'),
-        ];
-
-        $customs = HookAction::getAdsPositions()->where('type', 'banner')->pluck('name', 'key')->toArray();
-
-        return array_merge($defaults, $customs);
+        return HookAction::getAdsPositions()
+            ->whereIn('type', [self::TYPE_BANNER, self::TYPE_HTML])
+            ->pluck('name', 'key')
+            ->toArray();
     }
 
     public function getBody(): ?string
     {
-        if ($this->type == Ads::TYPE_BANNER) {
+        if ($this->type == self::TYPE_BANNER) {
             return '<img src="'.upload_url($this->body).'" />';
         }
 

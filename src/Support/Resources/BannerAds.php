@@ -8,7 +8,7 @@
  * @license    MIT
  */
 
-namespace Juzaweb\AdsManager\Support\BackendResource;
+namespace Juzaweb\AdsManager\Support\Resources;
 
 use Juzaweb\AdsManager\Models\Ads;
 use Juzaweb\AdsManager\Repositories\AdsRepository;
@@ -24,7 +24,7 @@ class BannerAds extends BackendResource
     public function getMenu(): array
     {
         return [
-            'icon' => 'fa fa-file',
+            'icon' => 'fa fa-file-text-o',
             'position' => 1,
             'parent' => 'ads-manager'
         ];

@@ -3,11 +3,11 @@
 namespace Juzaweb\AdsManager\Providers;
 
 use Illuminate\Support\Collection;
-use Juzaweb\AdsManager\AdsManagerAction;
-use Juzaweb\AdsManager\Repositories\AdsRepository;
-use Juzaweb\AdsManager\Repositories\AdsRepositoryEloquent;
-use Juzaweb\AdsManager\Repositories\VideoAdsRepository;
-use Juzaweb\AdsManager\Repositories\VideoAdsRepositoryEloquent;
+use Juzaweb\AdsManager\Actions\AdsManagerAction;
+use Juzaweb\AdsManager\Actions\DefaultAdsPositionAction;
+use Juzaweb\AdsManager\Repositories;
+use Juzaweb\AdsManager\Support\AdsManager;
+use Juzaweb\AdsManager\Contracts\AdsManager as AdsManagerContract;
 use Juzaweb\CMS\Facades\ActionRegister;
 use Juzaweb\CMS\Support\HookAction;
 use Juzaweb\CMS\Support\ServiceProvider;
@@ -15,8 +15,8 @@ use Juzaweb\CMS\Support\ServiceProvider;
 class AdsManagerServiceProvider extends ServiceProvider
 {
     public array $bindings = [
-        AdsRepository::class => AdsRepositoryEloquent::class,
-        VideoAdsRepository::class => VideoAdsRepositoryEloquent::class
+        Repositories\AdsRepository::class => Repositories\AdsRepositoryEloquent::class,
+        Repositories\VideoAdsRepository::class => Repositories\VideoAdsRepositoryEloquent::class
     ];
 
     public function boot(): void
@@ -50,11 +50,11 @@ class AdsManagerServiceProvider extends ServiceProvider
             }
         );
 
-        ActionRegister::register(AdsManagerAction::class);
+        ActionRegister::register([AdsManagerAction::class, DefaultAdsPositionAction::class]);
     }
 
-    public function register()
+    public function register(): void
     {
-        //
+        $this->app->singleton(AdsManagerContract::class, AdsManager::class);
     }
 }

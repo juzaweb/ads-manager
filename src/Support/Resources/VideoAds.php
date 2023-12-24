@@ -8,7 +8,7 @@
  * @license    MIT
  */
 
-namespace Juzaweb\AdsManager\Support\BackendResource;
+namespace Juzaweb\AdsManager\Support\Resources;
 
 use Juzaweb\AdsManager\Repositories\VideoAdsRepository;
 use Juzaweb\CMS\Abstracts\BackendResource;
@@ -30,7 +30,7 @@ class VideoAds extends BackendResource
     public function getMenu(): array
     {
         return [
-            'icon' => 'fa fa-code',
+            'icon' => 'fa fa-file-video-o',
             'position' => 1,
             'parent' => 'ads-manager'
         ];

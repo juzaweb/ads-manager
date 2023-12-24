@@ -29,7 +29,7 @@ class VideoAdsController extends FrontendController
         }
 
         $video = $this->getVideoAds($position, $id);
-        if (empty($video)) {
+        if ($video === null) {
             return $this->renderNoneAds();
         }
 
@@ -41,7 +41,7 @@ class VideoAdsController extends FrontendController
             ->setId('ad1')
             ->setAdSystem($video->name)
             ->setAdTitle($video->title)
-            ->addImpression('http://ad.server.com/impression', 'imp1');
+            ->addImpression('https://ad.server.com/impression', 'imp1');
 
         $linearCreative = $ad1
             ->createLinearCreative()

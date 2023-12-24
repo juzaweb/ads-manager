@@ -2,7 +2,6 @@
 
 namespace Juzaweb\AdsManager\Repositories;
 
-use Juzaweb\AdsManager\Models\Ads;
 use Juzaweb\AdsManager\Models\VideoAds;
 use Juzaweb\CMS\Facades\HookAction;
 use Juzaweb\CMS\Repositories\BaseRepositoryEloquent;
@@ -16,7 +15,7 @@ use Juzaweb\CMS\Traits\ResourceRepositoryEloquent;
 class VideoAdsRepositoryEloquent extends BaseRepositoryEloquent implements VideoAdsRepository
 {
     use ResourceRepositoryEloquent;
-    
+
     /**
      * Specify Model class name
      *
@@ -29,6 +28,9 @@ class VideoAdsRepositoryEloquent extends BaseRepositoryEloquent implements Video
 
     public function getPositions(): array
     {
-        return HookAction::getAdsPositions()->where('type', 'video')->pluck('name', 'key')->toArray();
+        return HookAction::getAdsPositions()
+            ->where('type', 'video')
+            ->pluck('name', 'key')
+            ->toArray();
     }
 }
