@@ -10,6 +10,7 @@
 
 namespace Juzaweb\AdsManager\Support\Resources;
 
+use Juzaweb\AdsManager\Http\Datatables\AdsManagerDatatable;
 use Juzaweb\AdsManager\Models\Ads;
 use Juzaweb\AdsManager\Repositories\AdsRepository;
 use Juzaweb\CMS\Abstracts\BackendResource;
@@ -20,6 +21,7 @@ class BannerAds extends BackendResource
     protected string $label = 'jwad::content.banner_ads';
     protected string $repository = AdsRepository::class;
     protected array $validator = [];
+    protected ?string $dataTable = AdsManagerDatatable::class;
 
     public function getMenu(): array
     {
@@ -37,7 +39,7 @@ class BannerAds extends BackendResource
                 'type' => 'text',
             ],
             'body' => [
-                'type' => 'editor',
+                'type' => 'textarea',
             ],
             'active' => [
                 'type' => 'select',

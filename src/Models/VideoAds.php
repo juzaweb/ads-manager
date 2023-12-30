@@ -22,6 +22,7 @@ class VideoAds extends Model
         'offset',
         'options',
         'active',
+        'views',
     ];
 
     public $casts = ['options' => 'array'];

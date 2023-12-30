@@ -36,6 +36,7 @@ class AdsManagerDatatable extends DataTable
             'active' => [
                 'label' => trans('cms::app.active'),
                 'width' => '15%',
+                'formatter' => [$this, 'activeFormatter'],
             ],
             'created_at' => [
                 'label' => trans('cms::app.created_at'),
@@ -51,10 +52,10 @@ class AdsManagerDatatable extends DataTable
     /**
      * Query data datatable
      *
-     * @param array $data
+     * @param  array  $data
      * @return Builder
      */
-    public function query($data): Builder
+    public function query(array $data): Builder
     {
         $query = Ads::query();
 
@@ -76,7 +77,7 @@ class AdsManagerDatatable extends DataTable
         return $query;
     }
 
-    public function bulkActions($action, $ids)
+    public function bulkActions($action, $ids): void
     {
         $rows = Ads::whereIn('id', $ids)->get();
         switch ($action) {
@@ -85,6 +86,17 @@ class AdsManagerDatatable extends DataTable
                     $row->delete();
                 }
                 break;
+            case 'active':
+                foreach ($rows as $row) {
+                    $row->active = true;
+                    $row->save();
+                }
+                break;
+            case 'inactive':
+                foreach ($rows as $row) {
+                    $row->active = false;
+                    $row->save();
+                }
         }
     }
 }

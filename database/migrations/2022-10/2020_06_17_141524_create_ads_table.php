@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdsTable extends Migration
-{
+return new class extends Migration {
     public function up()
     {
         Schema::create(
@@ -27,4 +26,4 @@ class CreateAdsTable extends Migration
     {
         Schema::dropIfExists('juad_ads');
     }
-}
+};
