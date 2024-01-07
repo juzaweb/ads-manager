@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Juzaweb\CMS\Facades\HookAction;
 use Juzaweb\CMS\Models\Model;
+use Juzaweb\CMS\Traits\UseUUIDColumn;
 use Juzaweb\Network\Traits\Networkable;
 
 /**
@@ -36,7 +37,7 @@ use Juzaweb\Network\Traits\Networkable;
  */
 class Ads extends Model
 {
-    use Networkable;
+    use Networkable, UseUUIDColumn;
 
     public const TYPE_BANNER = 'banner';
     public const TYPE_HTML = 'html';
