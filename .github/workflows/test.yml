@@ -1,0 +1,10 @@
+name: Run phpunit test suite
+
+on: [push, pull_request]
+
+jobs:
+  phpunit-test-suite:
+    uses: juzaweb/actions/.github/workflows/plugin-test.yml@main
+    with:
+      vendor: juzaweb
+      plugin: ads-manager
