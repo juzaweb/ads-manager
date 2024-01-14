@@ -1,4 +1,4 @@
-name: Schedule Run phpunit test suite
+name: Schedule run phpunit test suite
 
 on:
   schedule:
