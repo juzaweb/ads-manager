@@ -1,10 +1,9 @@
-# Ads Management Plugin
-
-## About
+### About
 
 Add html ads to your website
 
-## Install
+### Features
 
-- Go to `Admin -> Plugins -> Add new`
-- Search and `Ads Management` plugin
+- [x] Banner Ads management
+- [x] Video Ads support
+- [x] Add banner with short code
