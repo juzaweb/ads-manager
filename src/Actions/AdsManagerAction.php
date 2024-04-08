@@ -40,6 +40,12 @@ class AdsManagerAction extends Action
 
     public function addAdsPost($content): string
     {
+        $canShowAds = apply_filters('jwad.can_show_ads', true);
+
+        if (!$canShowAds) {
+            return $content;
+        }
+
         $botAds = Ads::where('position', '=', 'post_footer')
             ->whereActive(1)
             ->get(['body']);

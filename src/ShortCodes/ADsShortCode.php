@@ -16,6 +16,12 @@ class ADsShortCode
 {
     public function register($shortcode, $content, $compiler, $name, $viewData): string
     {
+        $canShowAds = apply_filters('jwad.can_show_ads', true);
+
+        if (!$canShowAds) {
+            return '';
+        }
+
         return Ads::where(['position' => $content])->first()?->getBody() ?? '';
     }
 }
