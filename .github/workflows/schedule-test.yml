@@ -6,7 +6,9 @@ on:
 
 jobs:
   phpunit-test-suite:
-    uses: juzaweb/actions/.github/workflows/plugin-test.yml@main
-    with:
-      vendor: juzaweb
-      plugin: ads-manager
+    steps:
+      - name: Testing
+        uses: juzaweb/actions/.github/workflows/plugin-test.yml@main
+        with:
+          vendor: juzaweb
+          plugin: ads-manager
