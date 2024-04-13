@@ -25,11 +25,6 @@ class AdsManagerDatatable extends DataTable
     public function columns(): array
     {
         return [
-            'short_code' => [
-                'label' => trans('cms::app.short_code'),
-                'width' => '10%',
-                'formatter' => [$this, 'shortCodeFormatter'],
-            ],
             'name' => [
                 'label' => trans('cms::app.name'),
                 'formatter' => [$this, 'rowActionsFormatter'],
@@ -37,6 +32,11 @@ class AdsManagerDatatable extends DataTable
             'position' => [
                 'label' => trans('cms::app.position'),
                 'width' => '15%',
+            ],
+            'short_code' => [
+                'label' => trans('cms::app.short_code'),
+                'width' => '15%',
+                'formatter' => [$this, 'shortCodeFormatter'],
             ],
             'active' => [
                 'label' => trans('cms::app.active'),
@@ -107,6 +107,6 @@ class AdsManagerDatatable extends DataTable
 
     public function shortCodeFormatter($value, $row, $index): string
     {
-        return "<code>[ads id=\"{$row->id}\"]</code>";
+        return "<input type='text' class='form-control' value='[ads id=\"{$row->uuid}\"]' readonly onclick='this.select()'/>";
     }
 }

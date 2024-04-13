@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::table(
             'juad_ads',
             function (Blueprint $table) {
-                $table->uuid()->index();
+                $table->uuid()->nullable()->index();
                 $table->bigInteger('views')->default(0)->index();
                 $table->bigInteger('click')->default(0)->index();
             }
@@ -24,7 +24,7 @@ return new class extends Migration {
         Schema::table(
             'juad_video_ads',
             function (Blueprint $table) {
-                $table->uuid()->index();
+                $table->uuid()->nullable()->index();
                 $table->bigInteger('views')->default(0)->index();
                 $table->bigInteger('click')->default(0)->index();
             }
