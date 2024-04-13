@@ -25,6 +25,11 @@ class AdsManagerDatatable extends DataTable
     public function columns(): array
     {
         return [
+            'short_code' => [
+                'label' => trans('cms::app.short_code'),
+                'width' => '10%',
+                'formatter' => [$this, 'shortCodeFormatter'],
+            ],
             'name' => [
                 'label' => trans('cms::app.name'),
                 'formatter' => [$this, 'rowActionsFormatter'],
@@ -98,5 +103,10 @@ class AdsManagerDatatable extends DataTable
                     $row->save();
                 }
         }
+    }
+
+    public function shortCodeFormatter($value, $row, $index): string
+    {
+        return "<code>[ads id=\"{$row->id}\"]</code>";
     }
 }

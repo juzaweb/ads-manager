@@ -28,7 +28,7 @@ class BannerAds extends BackendResource
         return [
             'icon' => 'fa fa-file-text-o',
             'position' => 1,
-            'parent' => 'ads-manager'
+            'parent' => 'ads-manager',
         ];
     }
 
@@ -55,7 +55,7 @@ class BannerAds extends BackendResource
                 'type' => 'select',
                 'sidebar' => true,
                 'data' => [
-                    'options' => Ads::getPositions(),
+                    'options' => ['' => '-----'] + Ads::getPositions(),
                 ]
             ],
         ];

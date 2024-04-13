@@ -12,7 +12,7 @@ namespace Juzaweb\AdsManager\ShortCodes;
 
 use Juzaweb\AdsManager\Models\Ads;
 
-class ADsShortCode
+class ADSShortCode
 {
     public function register($shortcode, $content, $compiler, $name, $viewData): string
     {

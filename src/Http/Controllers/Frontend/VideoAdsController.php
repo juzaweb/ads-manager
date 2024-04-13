@@ -75,7 +75,6 @@ class VideoAdsController extends FrontendController
 
     protected function renderNoneAds(): Document
     {
-        $factory = new Factory();
-        return $factory->create('4.1');
+        return (new Factory())->create('4.1');
     }
 }
