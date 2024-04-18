@@ -1,3 +1,6 @@
+### v1.1.6 
+* :+1: Update readme
+
 ### v1.1.5 
 * :+1: Short code with id
 * :bug: Fix Schedule run
