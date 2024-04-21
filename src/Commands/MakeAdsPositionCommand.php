@@ -4,7 +4,6 @@ namespace Juzaweb\AdsManager\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\File;
 use Juzaweb\CMS\Facades\Theme;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -38,7 +37,7 @@ class MakeAdsPositionCommand extends Command
             return self::FAILURE;
         }
 
-        $register = json_decode($theme->getContents('register.json'), true, 512, JSON_THROW_ON_ERROR);
+        $register = $theme->getRegister();
         $positions = Arr::get($register, 'ads_positions', []);
 
         if (Arr::get($positions, $name)) {
@@ -56,10 +55,7 @@ class MakeAdsPositionCommand extends Command
 
         $register['ads_positions'] = $positions;
 
-        File::put(
-            $theme->getPath('register.json'),
-            json_encode($register, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT)
-        );
+        $theme->putRegister($register);
 
         $this->info("Position {$name} created successfully.");
 
