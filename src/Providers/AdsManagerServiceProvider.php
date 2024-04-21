@@ -5,6 +5,7 @@ namespace Juzaweb\AdsManager\Providers;
 use Illuminate\Support\Collection;
 use Juzaweb\AdsManager\Actions\AdsManagerAction;
 use Juzaweb\AdsManager\Actions\DefaultAdsPositionAction;
+use Juzaweb\AdsManager\Commands\MakeAdsPositionCommand;
 use Juzaweb\AdsManager\Repositories;
 use Juzaweb\AdsManager\ShortCodes\ADSShortCode;
 use Juzaweb\AdsManager\Support\AdsManager;
@@ -53,6 +54,8 @@ class AdsManagerServiceProvider extends ServiceProvider
         );
 
         ActionRegister::register([AdsManagerAction::class, DefaultAdsPositionAction::class]);
+
+        $this->commands([MakeAdsPositionCommand::class]);
 
         ShortCode::register('ads', ADSShortCode::class);
     }
