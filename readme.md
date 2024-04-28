@@ -1,6 +1,9 @@
 ### About
 
-Add html ads to your website
+Add html ads to your website.
+
+[![Total Downloads](https://img.shields.io/packagist/dt/juzaweb/ads-manager.svg?style=social)](https://packagist.org/packages/juzaweb/ads-manager)
+[![GitHub Repo stars](https://img.shields.io/github/stars/juzaweb/ads-manager?style=social)](https://github.com/juzaweb/ads-manager)
 
 ### Features
 
@@ -17,4 +20,4 @@ or
 `[ads id="{ads_id}"]`
 
 with:
-ads_id: uuid of your ads
+- `ads_id`: uuid of your ads
