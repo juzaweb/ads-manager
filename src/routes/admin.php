@@ -1,13 +1,8 @@
 <?php
 
-use Juzaweb\AdsManager\Http\Controllers\Backend\AdsManagerController;
-use Juzaweb\AdsManager\Http\Controllers\Backend\VideoAdsController;
+use Juzaweb\Modules\AdsManagement\Http\Controllers\BannerAdController;
+use Juzaweb\Modules\AdsManagement\Http\Controllers\VideoAdsController;
+use Juzaweb\Modules\Core\Facades\RouteResource;
 
-Route::group(
-    ['prefix' => 'banner-ads'],
-    function () {
-        //Route::jwResource('/', AdsManagerController::class);
-    }
-);
-
-//Route::jwResource('video-ads', VideoAdsController::class);
+RouteResource::admin('banner-ads', BannerAdController::class);
+RouteResource::admin('video-ads', VideoAdsController::class);

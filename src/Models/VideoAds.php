@@ -1,30 +1,39 @@
 <?php
 
-namespace Juzaweb\AdsManager\Models;
+namespace Juzaweb\Modules\AdsManagement\Models;
 
-use Juzaweb\CMS\Models\Model;
-use Juzaweb\CMS\Traits\ResourceModel;
-use Juzaweb\CMS\Traits\UseUUIDColumn;
-use Juzaweb\CMS\Traits\UUIDPrimaryKey;
-use Juzaweb\Network\Traits\Networkable;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Juzaweb\Modules\Core\Models\Model;
 
 class VideoAds extends Model
 {
-    use ResourceModel, UUIDPrimaryKey, Networkable, UseUUIDColumn;
+    use HasUuids;
 
-    protected $table = 'juad_video_ads';
+    protected $table = 'video_ads';
 
     protected $fillable = [
         'name',
         'title',
-        'video',
         'url',
+        'video',
         'position',
         'offset',
         'options',
         'active',
         'views',
+        'click',
     ];
 
-    public $casts = ['options' => 'array'];
+    public $casts = [
+        'options' => 'array',
+        'active' => 'boolean',
+        'views' => 'integer',
+        'click' => 'integer',
+        'offset' => 'integer',
+    ];
+
+    public static function getFieldName(): string
+    {
+        return 'name';
+    }
 }
