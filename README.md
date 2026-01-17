@@ -14,7 +14,7 @@ This advertising management module for Juzaweb CMS supports both banner and vide
 
 ## Installation
 
-Module này là một phần của Juzaweb CMS. Để cài đặt:
+This module is part of Juzaweb CMS. To install:
 
 ```bash
 composer require juzaweb/ads-manager
@@ -188,7 +188,7 @@ composer test
 
 ### Code Style
 
-Module tuân theo PSR-2 coding standards.
+The module follows PSR-2 coding standards.
 
 ## License
 
