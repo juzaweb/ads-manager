@@ -1,6 +1,6 @@
 # Ads Manager Module
 
-Module quản lý quảng cáo cho Juzaweb CMS, hỗ trợ cả quảng cáo banner và video ads với khả năng quản lý vị trí hiển thị linh hoạt.
+This advertising management module for Juzaweb CMS supports both banner and video ads, with flexible display placement management capabilities.
 
 ## Features
 
