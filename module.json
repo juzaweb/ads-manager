@@ -4,6 +4,10 @@
     "description": "",
     "keywords": [],
     "priority": 0,
-    "providers": [],
-    "files": []
+    "providers": [
+        "Juzaweb\\Modules\\AdsManagement\\Providers\\AdManagementServiceProvider"
+    ],
+    "files": [
+        "helpers/helpers.php"
+    ]
 }

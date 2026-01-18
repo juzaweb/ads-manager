@@ -12,13 +12,7 @@ class AdManagementServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        //
-
-        $this->booted(
-            function () {
-                $this->registerMenus();
-            }
-        );
+        $this->registerMenus();
     }
 
     public function register(): void
@@ -26,7 +20,7 @@ class AdManagementServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         $this->app->register(RouteServiceProvider::class);
 
         $this->app->singleton(Ads::class, AdsRepository::class);
@@ -34,10 +28,6 @@ class AdManagementServiceProvider extends ServiceProvider
 
     protected function registerMenus(): void
     {
-        if (File::missing(storage_path('app/installed'))) {
-            return;
-        }
-
         Menu::make('ad-management', function () {
             return [
                 'title' => __('ad-management::translation.ad_management'),
@@ -66,9 +56,9 @@ class AdManagementServiceProvider extends ServiceProvider
     protected function registerConfig(): void
     {
         $this->publishes([
-            __DIR__ . '/../config/ad-management.php' => config_path('ad-management.php'),
+            __DIR__ . '/../../config/ad-management.php' => config_path('ad-management.php'),
         ], 'ad-management-config');
-        $this->mergeConfigFrom(__DIR__ . '/../config/ad-management.php', 'ad-management');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/ad-management.php', 'ad-management');
     }
 
     protected function registerTranslations(): void
