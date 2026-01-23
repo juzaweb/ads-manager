@@ -43,7 +43,13 @@ class BannerAds extends Model
     public function getBody(): ?string
     {
         if ($this->type == BannerAdsType::TYPE_BANNER) {
-            return '<a href="' . $this->url . '" target="_blank"><img src="' . upload_url($this->body) . '"></a>';
+            $image = '<img src="' . upload_url($this->body) . '">';
+
+            if ($this->url) {
+                return '<a href="' . $this->url . '" target="_blank">' . $image . '</a>';
+            }
+
+            return $image;
         }
 
         return $this->body;
