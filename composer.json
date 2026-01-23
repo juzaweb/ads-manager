@@ -15,7 +15,14 @@
         }
     },
     "require-dev": {
-        "juzaweb/core": "dev-master"
+        "juzaweb/core": "dev-master",
+        "orchestra/testbench": "^9.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Juzaweb\\Modules\\AdsManagement\\Tests\\": "tests/"
+        }
     },
     "minimum-stability": "dev",
     "config": {
