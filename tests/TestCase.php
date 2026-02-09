@@ -177,6 +177,7 @@ abstract class TestCase extends Orchestra
         $app['config']->set('app.locale', 'en');
         $app['config']->set('translatable.fallback_locale', 'en');
         $app['config']->set('auth.providers.users.model', \Juzaweb\Modules\Core\Models\User::class);
+        $app['config']->set('app.key', 'base64:YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWE=');
     }
 
     /**
