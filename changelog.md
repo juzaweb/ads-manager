@@ -1,4 +1,4 @@
-### v1.1.7 
+### v2.0.0 
 * Add tests for VideoAdsController and use Core AllExist rule
 * Add tests for VideoAdsController and model support
 * Add tests for video ad routes
