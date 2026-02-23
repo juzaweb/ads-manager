@@ -10,7 +10,9 @@
 
 use Juzaweb\Modules\AdsManagement\Ads;
 
-function ads_position(string $position): ?string
-{
-    return app(Ads::class)->getBanner($position)?->getBody();
+if (! function_exists('ads_position')) {
+    function ads_position(string $position): ?string
+    {
+        return app(Ads::class)->getBanner($position)?->getBody();
+    }
 }
