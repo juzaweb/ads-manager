@@ -115,6 +115,7 @@ abstract class TestCase extends Orchestra
     {
         return [
             'Field' => \Juzaweb\Modules\Core\Facades\Field::class,
+            'Menu' => \Juzaweb\Modules\Core\Facades\Menu::class,
             'Module' => \Juzaweb\Modules\Core\Facades\Module::class,
             'Theme' => \Juzaweb\Modules\Core\Facades\Theme::class,
             'Widget' => \Juzaweb\Modules\Core\Facades\Widget::class,
