@@ -1,3 +1,6 @@
+### v2.0.2 
+* build(ads-manager): move helper file autoloading from module.json to composer.json
+
 ### v2.0.0 
 * Add tests for VideoAdsController and use Core AllExist rule
 * Add tests for VideoAdsController and model support
