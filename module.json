@@ -6,8 +6,5 @@
     "priority": 0,
     "providers": [
         "Juzaweb\\Modules\\AdsManagement\\Providers\\AdManagementServiceProvider"
-    ],
-    "files": [
-        "helpers/helpers.php"
     ]
 }

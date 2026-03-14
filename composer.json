@@ -12,7 +12,10 @@
         "psr-4": {
             "Juzaweb\\Modules\\AdsManagement\\": "src/",
             "Juzaweb\\Modules\\AdsManagement\\Database\\Factories\\": "database/factories/"
-        }
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
     },
     "require-dev": {
         "orchestra/testbench": "^9.0",
